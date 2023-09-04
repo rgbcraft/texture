@@ -12,6 +12,6 @@ jobs:
       with:
         name: texture
         path: |
-          ${{ github.workspace }}/*
-          !${{ github.workspace }}/*.git*
+          *
+          !*.git*
             
