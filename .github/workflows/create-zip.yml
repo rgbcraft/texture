@@ -21,6 +21,6 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: /home/runner/work/texture/texture.zip
           asset_name: texture.zip
-          tag: ${{ github.ref }}
+          tag: latest
           overwrite: true
-          body: "Latest push release of the texturepack"
+          body: "Latest commit release of the texturepack"
