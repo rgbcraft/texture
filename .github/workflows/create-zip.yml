@@ -1,4 +1,4 @@
-name: Create Zip File
+name: Create Zip File and Push to CDN
 on: [push]
 jobs:
   build:
@@ -19,3 +19,7 @@ jobs:
           tag: latest
           overwrite: true
           body: "Latest commit release of the texturepack. If you want to work on the texture pack, do not download 'source code' from here, as it will be stale. Please checkout the main repo"
+      - name: Push release to CDN
+        run: |
+          apt-get install curl -y
+          curl https://cdn.rgbcraft.com/modpack/update-texture.php
