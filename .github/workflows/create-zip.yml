@@ -5,10 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: 🚚 Get latest code
+    - name: Get latest code
       uses: actions/checkout@v5
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
         name: texture
-        path: ../*
+        path: *
