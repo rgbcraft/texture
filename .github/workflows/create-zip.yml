@@ -9,6 +9,7 @@ jobs:
       - name: Zip Folder
         run: |
           rm -f texture.zip
+          date > build-date.txt #Identify if push failed
           zip -r texture.zip . -x ".git/*" ".github/*" "push.sh"
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
@@ -22,4 +23,5 @@ jobs:
       - name: Push release to CDN
         run: |
           sudo apt-get install curl -y
+          sleep 10 #Avoids problems with concurrency
           curl https://cdn.rgbcraft.com/modpack/update-texture.php
