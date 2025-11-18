@@ -10,6 +10,8 @@ jobs:
         run: |
           rm -f texture.zip
           zip -r texture.zip . -x ".git/*" ".github/*" "push.sh"
+          pwd
+          ls -lart
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
