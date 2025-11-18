@@ -4,11 +4,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - name: Generate ZIP
-        uses: byteever/action-build-zip@master
-        with:
-          filename: 'texture.zip'
+      - name: Checkout repo
+      - uses: actions/checkout@v5
+      - name: Zip Folder
+        run: |
+          pwd
+          cd ../
+          rm -rf texture.zip
+          zip -r texture.zip texture -x ".git/*" ".github/*"
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
