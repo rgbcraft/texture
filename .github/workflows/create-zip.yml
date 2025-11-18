@@ -1,14 +1,11 @@
-name: Create Archive
+name: Create Zip File
 on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - name: Get latest code
-      uses: actions/checkout@v5
-    - name: Upload artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: texture
-        path: *
+      - uses: actions/checkout@master
+      - name: Generate ZIP
+        uses: byteever/action-build-zip@master
+        with:
+          filename: 'texture.zip'
