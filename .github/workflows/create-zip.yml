@@ -10,13 +10,11 @@ jobs:
         run: |
           rm -f texture.zip
           zip -r texture.zip . -x ".git/*" ".github/*" "push.sh"
-          pwd
-          ls -lart
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: /home/runner/work/texture/texture.zip
+          file: /home/runner/work/texture/texture/texture.zip
           asset_name: texture.zip
           tag: latest
           overwrite: true
